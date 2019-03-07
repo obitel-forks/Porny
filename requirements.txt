@@ -1,0 +1,7 @@
+PyMySQL
+Flask-Mysql
+Flask
+lxml
+beautifulsoup4
+requests
+pymongo
