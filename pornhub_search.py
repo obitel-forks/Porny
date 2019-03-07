@@ -5,18 +5,21 @@
 # return video URLs from a search string
 # RAWR xD
 # TODO discard comments with urls or non english
+
+
 import requests
 from bs4 import BeautifulSoup
 import sys
 import time
 import pymysql
-
+import json
 
 
 base_url = "https://www.pornhub.com"
 urls = list()
 limit = 20
-db = pymysql.connect("alfred.cloud.blny.me", "porny", "ligma", "porny")
+CONFIG_FILE = json.loads(open("config.json").read())
+db = pymysql.connect(CONFIG_FILE["server"], CONFIG_FILE["username"], CONFIG_FILE["password"], CONFIG_FILE["db"])
 
 
 def pornhub_search():

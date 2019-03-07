@@ -1,10 +1,12 @@
+import json
 from urllib.request import urlopen
 
 from bs4 import BeautifulSoup
 from flask import Flask, request, render_template, jsonify
 import pymysql
 
-db = pymysql.connect("server", "username", "password", "db")
+CONFIG_FILE = json.loads(open("config.json").read())
+db = pymysql.connect(CONFIG_FILE["server"], CONFIG_FILE["username"], CONFIG_FILE["password"], CONFIG_FILE["db"])
 
 app = Flask(__name__)
 base_url = "https://www.pornhub.com"
